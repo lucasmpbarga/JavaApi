@@ -1,0 +1,30 @@
+DROP DATABASE estoque;
+
+CREATE DATABASE estoque;
+
+USE estoque;
+
+CREATE TABLE IF NOT EXISTS categoria (
+    categoria_id INT AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    PRIMARY KEY (categoria_id)
+);
+
+INSERT INTO categoria VALUES(null,'Açougue');
+INSERT INTO categoria VALUES(null,'Bebida');
+INSERT INTO categoria VALUES(null,'Cereais');
+
+
+CREATE TABLE IF NOT EXISTS produto (
+    produto_id INT AUTO_INCREMENT,
+    codigo_barra VARCHAR(12) NOT NULL UNIQUE,
+    nome VARCHAR(100) NOT NULL,
+	descricao VARCHAR(200),
+	quantidade INT,
+	categoria_id int not null,
+	PRIMARY KEY (produto_id),
+	FOREIGN KEY fk_cat(categoria_id) REFERENCES categoria(categoria_id) 
+	ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+INSERT INTO produto VALUES(null,'123456789012','Meu Produto Teste',null,7,1);

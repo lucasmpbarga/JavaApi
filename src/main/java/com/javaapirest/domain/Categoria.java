@@ -19,18 +19,9 @@ public class Categoria implements Serializable {
     
     public Categoria() {}
 
-	public Categoria(Integer categoria_id, String codigo_barra, String nome, String descricao, Integer quantidade,
-			Integer categoria_id1) {
+	public Categoria(Integer categoria_id, String nome) {
 		super();
 		this.nome = nome;
-		this.categoria_id = categoria_id1;
-	}
-
-	public Integer getProduto_id() {
-		return categoria_id;
-	}
-
-	public void setProduto_id(Integer categoria_id) {
 		this.categoria_id = categoria_id;
 	}
 
